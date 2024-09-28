@@ -10,6 +10,7 @@ export default function App() {
 
   function handleSelect(selectedBtn) {
     setSelecteTopic(selectedBtn);
+    console.log(examples[selectedBtn]);
   }
 
   return (

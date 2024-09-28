@@ -1,6 +1,13 @@
 import reactImage from "../../assets/react-core-concepts.png";
 import "./Header.css";
-const reactDescriptions = ["Fundamental", "Crucial", "Core"];
+const reactDescriptions = [
+  "Fundamental",
+  "Crucial",
+  "Core",
+  "Relevant",
+  "Foundational",
+  "Elementary",
+];
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * (max + 1));
