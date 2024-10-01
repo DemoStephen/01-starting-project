@@ -7,12 +7,10 @@ import { useState } from "react";
 import TabContent from "./Components/TabContent";
 export default function App() {
   const [selecteTopic, setSelecteTopic] = useState("");
-
+  const [activeState, setActiveState] = useState("");
   function handleSelect(selectedBtn) {
     setSelecteTopic(selectedBtn);
-    console.log(examples[selectedBtn]);
   }
-
   return (
     <>
       <Header />
@@ -29,12 +27,30 @@ export default function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect("components")}>
+            <TabButton
+              onSelect={() => handleSelect("components")}
+              active={activeState}
+            >
               Components
             </TabButton>
-            <TabButton onSelect={() => handleSelect("jsx")}>JSX</TabButton>
-            <TabButton onSelect={() => handleSelect("props")}>Props</TabButton>
-            <TabButton onSelect={() => handleSelect("state")}>State</TabButton>
+            <TabButton
+              onSelect={() => handleSelect("jsx")}
+              active={activeState}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              onSelect={() => handleSelect("props")}
+              active={activeState}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              onSelect={() => handleSelect("state")}
+              active={activeState}
+            >
+              State
+            </TabButton>
           </menu>
           <TabContent {...examples[selecteTopic]} />
         </section>
