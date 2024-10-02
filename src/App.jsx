@@ -5,6 +5,7 @@ import { examples } from "./data";
 import TabButton from "./Components/TabButton";
 import { useState } from "react";
 import TabContent from "./Components/TabContent";
+import { map } from "zod";
 export default function App() {
   const [selecteTopic, setSelecteTopic] = useState("");
   function handleSelect(selectedBtn) {
@@ -17,39 +18,23 @@ export default function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept {...data[0]} />
-            <CoreConcept {...data[1]} />
-            <CoreConcept {...data[2]} />
-            <CoreConcept {...data[3]} />
+            {data.map((item) => (
+              <CoreConcept {...item} key={item.title} />
+            ))}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton
-              onSelect={() => handleSelect("components")}
-              isSelected={selecteTopic === "components"}
-            >
-              Components
-            </TabButton>
-            <TabButton
-              onSelect={() => handleSelect("jsx")}
-              isSelected={selecteTopic === "jsx"}
-            >
-              JSX
-            </TabButton>
-            <TabButton
-              onSelect={() => handleSelect("props")}
-              isSelected={selecteTopic === "props"}
-            >
-              Props
-            </TabButton>
-            <TabButton
-              onSelect={() => handleSelect("state")}
-              isSelected={selecteTopic === "state"}
-            >
-              State
-            </TabButton>
+            {data.map(({ title }) => (
+              <TabButton
+                onSelect={() => handleSelect(title.toLocaleLowerCase())}
+                isSelected={selecteTopic === title.toLocaleLowerCase()}
+                key={title}
+              >
+                {title}
+              </TabButton>
+            ))}
           </menu>
           <TabContent {...examples[selecteTopic]} />
         </section>
