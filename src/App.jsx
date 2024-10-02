@@ -7,7 +7,6 @@ import { useState } from "react";
 import TabContent from "./Components/TabContent";
 export default function App() {
   const [selecteTopic, setSelecteTopic] = useState("");
-  const [activeState, setActiveState] = useState("");
   function handleSelect(selectedBtn) {
     setSelecteTopic(selectedBtn);
   }
@@ -29,25 +28,25 @@ export default function App() {
           <menu>
             <TabButton
               onSelect={() => handleSelect("components")}
-              active={activeState}
+              isSelected={selecteTopic === "components"}
             >
               Components
             </TabButton>
             <TabButton
               onSelect={() => handleSelect("jsx")}
-              active={activeState}
+              isSelected={selecteTopic === "jsx"}
             >
               JSX
             </TabButton>
             <TabButton
               onSelect={() => handleSelect("props")}
-              active={activeState}
+              isSelected={selecteTopic === "props"}
             >
               Props
             </TabButton>
             <TabButton
               onSelect={() => handleSelect("state")}
-              active={activeState}
+              isSelected={selecteTopic === "state"}
             >
               State
             </TabButton>
