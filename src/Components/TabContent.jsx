@@ -1,3 +1,4 @@
+import "./TabContent";
 export default function TabContent({ title, description, code }) {
   return (
     <>
