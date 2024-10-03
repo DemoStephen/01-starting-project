@@ -1,12 +1,11 @@
-import "./Example.css";
-import { data } from "../../data";
-import { examples } from "../../data";
-import TabButton from "../TabButton";
 import { useState } from "react";
+import { examples, data } from "../../data";
+import TabButton from "../TabButton";
 import TabContent from "../TabContent";
+import "./Example.css";
+
 export default function Example() {
   const [selecteTopic, setSelecteTopic] = useState("");
-
   function handleSelect(selectedBtn) {
     setSelecteTopic(selectedBtn);
   }
